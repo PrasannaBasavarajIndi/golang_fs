@@ -1,0 +1,6 @@
+Cars
+{id:'',number:'',model:'',class:''}
+
+{car1,ka09abc5647,ZEN,smallcar}
+
+{car2,ka28m34562,beetle,hatchback}
