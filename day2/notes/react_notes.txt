@@ -1,0 +1,11 @@
+try 
+$npm
+
+then run 
+npm create vite@latest . -- --template react
+
+run: npm installl
+run: npm run dev
+
+Theory:
+REACT:Its a js based framework for making UI
