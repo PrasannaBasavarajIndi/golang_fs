@@ -35,39 +35,41 @@ function ContactList() {
 
     return (
         <>
-            
-            <h3>List of Contacts</h3>
-            <div className="container">
-                <table className="table table-success table-striped">
-                    <thead className="table-dark">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Address</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {contacts && contacts.length > 0 ? contacts.map((contact) => (
-                            <tr key={contact.id}>
-                                <th scope="row">{contact.id}</th>
-                                <td>{contact.name}</td>
-                                <td>{contact.phone}</td>
-                                <td>{contact.email}</td>
-                                <td>{contact.address}</td>
-                                <td>
-                                    <a href={`/contacts/view/${contact.id}`} className="btn btn-primary shadow">View</a>
-                                    &nbsp;
-                                    <a href={`/contacts/edit/${contact.id}`} className="btn btn-info shadow">Edit</a>
-                                    &nbsp;
-                                    <button className="btn btn-danger shadow" onClick={() => deleteContact(contact.id)}>Delete</button>
-                                </td>
+            <div class="container text-start">
+
+                <h3>List of Contacts</h3>
+                <div className="container">
+                    <table className="table table-success table-striped">
+                        <thead className="table-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Address</th>
+                                <th></th>
                             </tr>
-                        )) : <tr><td colSpan="6">No Data Found</td></tr>}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {contacts && contacts.length > 0 ? contacts.map((contact) => (
+                                <tr key={contact.id}>
+                                    <th scope="row">{contact.id}</th>
+                                    <td>{contact.name}</td>
+                                    <td>{contact.phone}</td>
+                                    <td>{contact.email}</td>
+                                    <td>{contact.address}</td>
+                                    <td>
+                                        <a href={`/contacts/view/${contact.id}`} className="btn btn-primary shadow">View</a>
+                                        &nbsp;
+                                        <a href={`/contacts/edit/${contact.id}`} className="btn btn-info shadow">Edit</a>
+                                        &nbsp;
+                                        <button className="btn btn-danger shadow" onClick={() => deleteContact(contact.id)}>Delete</button>
+                                    </td>
+                                </tr>
+                            )) : <tr><td colSpan="6">No Data Found</td></tr>}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </>
     );
