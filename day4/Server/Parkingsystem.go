@@ -118,7 +118,7 @@ func readCarById(c *gin.Context) {
 
 	// Convert string ID to primitive.ObjectID
 	objectID, err := primitive.ObjectIDFromHex(id)
-	if err != nil {
+	if err != nil { 
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid ID format"})
 		return
 	}
@@ -161,9 +161,15 @@ func updateCar(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Car not found"})
 		return
 	}
-	oldCar.Number = jbodyCar.Number
-	oldCar.Model = jbodyCar.Model
-	oldCar.Type = jbodyCar.Type
+	if jbodyCar.Number != "" {
+		oldCar.Number = jbodyCar.Number
+	}
+	if jbodyCar.Model != "" {
+		oldCar.Model = jbodyCar.Model
+	}
+	if jbodyCar.Type != "" {
+		oldCar.Type = jbodyCar.Type
+	}
 
 	result, err := carCollection.UpdateOne(ctx, bson.M{"_id": objectID}, bson.M{"$set": oldCar})
 	if err != nil {
